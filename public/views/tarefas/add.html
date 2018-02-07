@@ -1,0 +1,39 @@
+<h3 class="sub-header">{{novo.nome}}</h3>
+
+
+<div class="row">
+
+  <div class="col-md-6" class="form-group">
+    <label>Projeto:</label>
+    <select name="" id="" ng-model="novo.projeto_id" class="form-control">
+      <option ng-repeat="option in projetos_list" value="{{option._id}}">{{option.nome}}</option>
+    </select>
+  </div>
+  
+  <div class="col-md-3" class="form-group">
+    <label>Usuário:</label>
+    <select name="" id="" ng-model="novo.usuario_id" class="form-control">
+      <option value=''>Selecione</option>
+
+      <option ng-repeat="option in usuarios_list" value="{{option._id}}">{{option.email}}</option>
+    </select>
+  </div>
+
+
+  <div class="col-md-3" class="form-group">
+    <label >Tempo estimado:</label>
+    <input ng-model="novo.tempo" class="form-control" />
+  </div>
+
+</div>
+
+<br>
+<div class="form-group">
+  <label >Tarefa:</label>
+  <textarea ng-change='set_title()' rows="8" ng-model="novo.text" class="form-control"></textarea>
+</div>
+
+<div class="form-group">
+  <a href="" ng-click="add()" class="btn btn-success" >Salvar</a>
+  <a href="#/tarefas" class="btn btn-default" >Cancelar</a>
+</div>

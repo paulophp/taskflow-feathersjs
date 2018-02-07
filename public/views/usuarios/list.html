@@ -1,0 +1,40 @@
+<div id="" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Usuários</th>
+        <th>status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="n in list">
+        <td >
+            <a href="#/usuario/{{n._id}}">
+
+              {{n.email}}
+            </a>
+
+        </td>
+
+        <td>
+          {{n.status}}
+
+
+
+
+        </td>
+
+        <td>
+          <a href="" class='' ng-click="reset(n._id)">Reset pass</a>
+                -
+           <a href="" class='' ng-click="del(n._id)">Inactivate</a>
+
+        </td>
+
+        
+      </tr>
+
+    </tbody>
+  </table>
+</div>

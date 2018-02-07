@@ -1,0 +1,46 @@
+<div id="dashboard" class="row">
+  <div class="col-md-4 form-group" style="padding-top:16px;
+    min-height: 100px;
+    max-height: 100px;"  ng-repeat="n in list">
+    <div class="pull-left text-center"  style="margin-right:10px">
+      <img src="/imgs/{{n.usuario.img}}" alt="" />
+      <br>
+      {{n.usuario.email}}
+    </div>
+    <div class="">
+      <span class="pull-left glyphicon_big" style="margin-right:10px">
+
+        <span ng-show="n.status == 'WORKING'" class="glyphicon glyphicon-play-circle" style="color:green"></span>
+        <span ng-show="n.status == 'PAUSED'" class="glyphicon glyphicon-pause" style="color:orange"></span>
+        <span ng-show="n.status == 'NEW'" class="glyphicon glyphicon-star-empty" style="color:blue"></span>
+        <span ng-show="n.status == 'CLOSED'" class="glyphicon glyphicon-thumbs-up" style="color:purple"></span>
+      </span>
+
+        {{n.nome}}
+        <br>
+        <small>
+          {{n.projeto.nome}}
+        </small>
+
+        <small style="color:#999">
+          <!-- <span class="glyphicon glyphicon-time"></span>   -->
+          {{_moment(n.createdAt)}} </small>
+
+
+          <br>
+          <div ng-show="n.progress.total>0" style="text-align:center; max-width:400px">
+            <div class="progress" style="margin:0">
+              <div class="progress-bar progress-bar-{{n.status=='PAUSED'?'warning':'success progress-bar-striped active'}}" role="progressbar" aria-valuenow="{{percent(n)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent(n,1)}}%;">
+                {{percent(n)}}%
+              </div>
+            </div>
+
+
+            <small style="color:#666">
+              {{toH(n.progress.total)}} - {{toH(n.progress.estimativa)}}
+            </small>
+
+          </div>
+    </div>
+  </div>
+</div>

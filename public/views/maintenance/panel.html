@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="form-group col-md-12">
+    <h4>
+    Maintenances
+    <a href="" ng-click="cmd('up')" class="btn btn-xs btn-default">
+      <span class="glyphicon glyphicon-thumbs-up" style="color:purple"></span> Update
+    </a>
+    <a href="" ng-click="cmd('reset')" class="btn btn-xs btn-default">
+      <span class="glyphicon glyphicon-refresh" style="color:green"></span> Reset
+    </a>
+  </h4>
+  </div>
+</div>
+
+
+<div id="" class="table-responsive">
+  <table class="table table-striped">
+
+    <tbody>
+      <tr ng-repeat="n in list">
+
+        <td >
+          {{n.tipo}}
+        </td>
+
+        <td >
+            {{_moment(n.createdAt)}}
+        </td>
+
+
+        <td>
+          {{n.text}}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

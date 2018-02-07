@@ -1,0 +1,61 @@
+<div id="" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Projeto</th>
+        <th>Tarefa</th>
+        <th>Usuário</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Timeline</th>
+        <th>Time secs</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="n in list | filter:search">
+        <td>
+          {{n.cliente.nome}}
+        </td>
+
+        <td>
+          {{n.projeto.nome}}
+        </td>
+
+        <td>
+          {{n.tarefa.nome}}
+        </td>
+
+
+
+        <td>
+          {{n.usuario.email}}
+        </td>
+
+        <td>
+          {{n.createdAt | date:'dd/MM/yyyy HH:mm'}}
+        </td>
+        <td>
+          {{n.updatedAt | date:'dd/MM/yyyy HH:mm'}}
+
+        </td>
+
+        <td>
+          {{tempo(n.updatedAt, n.createdAt)}}
+        </td>
+
+        <td>
+          {{tempo(n.updatedAt, n.createdAt, 1)}}
+
+        </td>
+
+        <td><a href=""  ng-click="del(n._id)">x</a></td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

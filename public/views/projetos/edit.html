@@ -1,0 +1,44 @@
+<div class="form-group">
+  <label >Nome:</label>
+  <input ng-model="p.nome" class="form-control">
+</div>
+
+
+<div  class="form-group">
+  <label>Clientes:</label>
+  <select name="" id="" ng-model="p.cliente_id" class="form-control">
+    <option value=''>Selecione</option>
+    <option ng-repeat="option in clientes_list" value="{{option._id}}">{{option.nome}}</option>
+  </select>
+</div>
+
+
+<div class="form-group">
+  <label >Carga diária:</label>
+  <input ng-model="p.horas_dia" class="form-control">
+</div>
+
+
+<div class="form-group">
+  <a href="" ng-click="edit(params.id)" class="btn btn-success" >Salvar</a>
+  <a href="#/projetos" class="btn btn-default" >Cancelar</a>
+</div>
+
+<!-- <div id="mgs" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Message</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="n in greeting">
+        <td ng-click="edit(n._id)">
+            {{n.text}}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div> -->

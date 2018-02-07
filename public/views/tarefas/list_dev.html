@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="form-group col-md-12">
+    <h4>
+    Tarefas
+    <a href="" ng-click="filter('OPEN')" class="btn btn-xs btn-default">
+      <span class="glyphicon glyphicon-tasks" style="color:green"></span> Abertas
+    </a>
+    <a href="" ng-click="filter()" class="btn btn-xs btn-default">
+      <span class="glyphicon glyphicon-thumbs-up" style="color:purple"></span> Concluídas
+    </a>
+  </h4>
+  </div>
+</div>
+
+
+<div id="" class="table-responsive">
+
+  <table class="table table-striped">
+
+    <tbody>
+      <tr  ng-repeat="n in list | filter:search">
+
+        <td width="160">{{n.projeto.nome}}
+          <a ng-show="n.text != n.nome" ng-click="isOpen = !isOpen"  class="btn btn-default btn-xs pull-right">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+
+      </td>
+
+
+        <td colspan="">
+            <span ng-show="n.status == 'WORKING'" class="glyphicon glyphicon-play-circle" style="color:green"></span>
+            <span ng-show="n.status == 'PAUSED'" class="glyphicon glyphicon-pause" style="color:orange"></span>
+            <span ng-show="n.status == 'NEW'" class="glyphicon glyphicon-star-empty" style="color:blue"></span>
+            <span ng-show="n.status == 'CLOSED'" class="glyphicon glyphicon-thumbs-up" style="color:purple"></span>
+            {{n.nome}}
+            <br>
+            <small style="color:#999">
+              <!-- <span class="glyphicon glyphicon-time"></span>   -->
+              {{_moment(n.createdAt)}} </small>
+
+            <div  ng-show="isOpen" style="white-space:pre-wrap; font-size:88%">{{set_text(n.text)}}</div>
+        </td>
+
+
+
+        <td width="160" align="center">
+
+          <span ng-show="n.status=='NEW'">
+            {{toH(n.progress.estimativa)}}
+          </span>
+
+          <div ng-hide="n.progress.total==0">
+
+            <div class="progress" style="margin:0">
+              <div class="progress-bar progress-bar-{{n.status=='PAUSED'?'warning':'success '}} {{n.status=='WORKING'?'progress-bar-striped active':''}}" role="progressbar" aria-valuenow="{{percent(n)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent(n,1)}}%;">
+                {{percent(n)}}%
+              </div>
+            </div>
+
+
+            <small style="color:#666">
+              {{toH(n.progress.total)}} - {{toH(n.progress.estimativa)}}
+            </small>
+
+          </div>
+          <p>
+            {{n.usuario.email}}
+
+          </p>
+
+
+
+        </td>
+
+
+
+
+        <td width="182" >
+
+
+          <span class="pull-left" style="margin-left: 6px;">
+
+            <a ng-show="n.status == 'PAUSED'
+            || n.status == 'NEW'" href="" ng-click="set_status(n._id,'WORKING');"  class="btn btn-success btn-xs">
+            <span class="glyphicon glyphicon-play"></span> Start
+          </a>
+          <a ng-show="n.status == 'WORKING'" href="" ng-click="set_status(n._id,'PAUSED')" class="btn btn-warning btn-xs">
+            <span class="glyphicon glyphicon-pause"></span> Pause
+          </a>
+          </span>
+
+
+
+
+            <span ng-show="n.status == 'PAUSED'" class="admin pull-right">
+              <a  href=""   ng-click="set_status(n._id,n.status=='CLOSED'?'PAUSED':'CLOSED',1)" class="btn btn-{{n.status=='CLOSED'?'warning':'info'}} btn-xs ">
+                <span class="glyphicon glyphicon-thumbs-{{n.status=='CLOSED'?'down':'up'}} "></span> {{n.status=='CLOSED'?'Negar':'Concluir'}}
+              </a>
+            </span>
+
+
+
+        </td>
+
+
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

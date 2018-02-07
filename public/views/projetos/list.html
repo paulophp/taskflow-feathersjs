@@ -1,0 +1,49 @@
+<div id="" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Projeto
+
+              <a href="#/add_projeto" class="btn btn-xs btn-default">
+                <span class="glyphicon glyphicon-plus" style="color:blue"></span> Criar
+              </a>
+        </th>
+        <th>Cliente</th>
+        <th>Carga diária</th>
+        <th>
+          Hoje
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="n in list">
+        <td >
+            <a href="#/projeto/{{n._id}}">
+
+              {{n.nome}}
+            </a>
+        </td>
+
+        <td >
+            {{n.cliente.nome}}
+        </td>
+        <td >
+            {{n.horas_dia}}
+        </td>
+
+
+        <td>
+          <div class="progress" style="margin:0">
+            <div class="progress-bar progress-bar-success " role="progressbar" aria-valuenow="{{percent(n)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent(n,1)}}%;">
+              {{percent(n)}}%
+            </div>
+          </div>
+          <small style="color:#666">
+            {{toH(n.progress.total)}} - {{toH(n.progress.estimativa)}}
+          </small
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

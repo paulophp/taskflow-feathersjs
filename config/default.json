@@ -1,0 +1,14 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/taskflow",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "tSAsq+5X++XjiU/stfrL+ip4hbg6CH/9LO5WfnKOUrwFpVPINwU5Rir69HfD9SYoRbZy/D2SpH63Tfy9i5suQg=="
+    },
+    "local": {},
+
+    "successRedirect": "/index.html"
+  }
+}

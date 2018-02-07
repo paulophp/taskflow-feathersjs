@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Welcome </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+  <body>
+    <main class="login container">
+      <div class="row">
+        <div class="col-md-4 col-6-tablet push-3-tablet ">
+          <h3 class="font-100">Authenticate:</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-6-tablet push-3-tablet col-4-desktop push-4-desktop ">
+          <form class="form" method="post" action="/auth/local">
+            <div  class="form-group">
+              <label>E-mail:</label>
+              <input class="form-control"  name="email" placeholder="email" autofocus>
+            </div>
+
+          <div  class="form-group">
+            <label>Senha:</label>
+              <input class="form-control" type="password" name="password" placeholder="password">
+
+            </div>
+            <button type="submit" class="btn btn-primary block login">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
